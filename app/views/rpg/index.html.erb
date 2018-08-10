@@ -1,0 +1,48 @@
+<p>Your Gold: <%= session[:gold] %></p>
+
+<fieldset>
+    <h2> Farm </h2>
+    <p> (earns 10-20 gold) </p>
+    <form action="/farm" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold!">
+    </form>
+</fieldset>
+
+<fieldset>
+    <h2> Cave </h2>
+    <p> (earns 5-10 gold) </p>
+    <form action="/cave" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold!">
+    </form>
+</fieldset>
+
+<fieldset>
+    <h2> House </h2>
+    <p> (earns 2-5 gold) </p>
+    <form action="/house" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold!">
+    </form>
+</fieldset>
+
+<fieldset>
+    <h2> Casino </h2>
+    <p> (earns/takes 0-50 gold) </p>
+    <form action="/casino" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold!">
+    </form>
+</fieldset>
+
+<h3>Activities</h3>
+<fieldset>
+    <div>
+        <% if session[:logs][0] %>
+            <% session[:logs].each do |message| %>
+                    <p style="color: <%= message[1] %>"><%= message[0] %> </p>
+            <% end %>
+        <% end %>
+    </div>
+</fieldset>
